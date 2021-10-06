@@ -14,6 +14,9 @@ public class Calculadora {
     public double division(double dividendo, double divisor) {
         return ultimoResultado = dividendo / divisor;
     }
+    public int divisionEntera (int dividendo, int divisor){
+        return dividendo/divisor;
+    }
     public double getUltimaResultado(){
         return ultimoResultado;
     }

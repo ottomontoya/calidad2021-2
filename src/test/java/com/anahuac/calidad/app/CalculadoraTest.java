@@ -125,6 +125,20 @@ public class CalculadoraTest {
         //Assert.assertEquals(resultadoEsperado, resultadoEjecucion, .01);
         assertThat(resultadoEsperado, is(resultadoEjecucion));
     }
+
+    @Test (expected = ArithmeticException.class)
+    public void divisionEnteraTest() {
+        //set el resultado esperado
+        int resultadoEsperado = 2;
+
+        // ejercicio a probar
+        int resultadoEjecucion = miCalculadora.divisionEntera(10, 5);
+
+        //verificar
+        //Assert.assertEquals(resultadoEsperado, resultadoEjecucion, .01);
+        assertThat(resultadoEsperado, is(resultadoEjecucion));
+    }
+
     /*
 
 
