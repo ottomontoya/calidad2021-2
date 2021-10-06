@@ -35,10 +35,98 @@ public class CalculadoraTest {
         assertThat(resultadoEsperado, is(closeTo(resultadoEjecucion, .01)));
     }
 
-    /*
     @Test
-    public void resta() {
+    public void restaTest() {
+        //set el resultado esperado
+        double resultadoEsperado = 10;
+
+        // ejercicio a probar
+        double resultadoEjecucion = miCalculadora.resta(15.0f, 5.0f);
+
+        //verificar
+        //Assert.assertEquals(resultadoEsperado, resultadoEjecucion, .01);
+        assertThat(resultadoEsperado, is(closeTo(resultadoEjecucion, .01)));
     }
+
+    @Test
+    public void divisionAllPosTest() {
+        //set el resultado esperado
+        double resultadoEsperado = 10;
+
+        // ejercicio a probar
+        double resultadoEjecucion = miCalculadora.division(20.0f, 2.0f);
+
+        //verificar
+        //Assert.assertEquals(resultadoEsperado, resultadoEjecucion, .01);
+        assertThat(resultadoEsperado, is(resultadoEjecucion));
+    }
+
+    @Test
+    public void divisionDivNegTest() {
+        //set el resultado esperado
+        double resultadoEsperado = -10;
+
+        // ejercicio a probar
+        double resultadoEjecucion = miCalculadora.division(-20.0f, 2.0f);
+
+        //verificar
+        //Assert.assertEquals(resultadoEsperado, resultadoEjecucion, .01);
+        assertThat(resultadoEsperado, is(resultadoEjecucion));
+    }
+
+    @Test
+    public void divisionDivisorNegTest() {
+        //set el resultado esperado
+        double resultadoEsperado = -10;
+
+        // ejercicio a probar
+        double resultadoEjecucion = miCalculadora.division(20.0f, -2.0f);
+
+        //verificar
+        //Assert.assertEquals(resultadoEsperado, resultadoEjecucion, .01);
+        assertThat(resultadoEsperado, is(resultadoEjecucion));
+    }
+
+    @Test
+    public void divisionAllNegTest() {
+        //set el resultado esperado
+        double resultadoEsperado = 10;
+
+        // ejercicio a probar
+        double resultadoEjecucion = miCalculadora.division(-20.0f, -2.0f);
+
+        //verificar
+        //Assert.assertEquals(resultadoEsperado, resultadoEjecucion, .01);
+        assertThat(resultadoEsperado, is(resultadoEjecucion));
+    }
+
+    @Test
+    public void divisionEntreSi() {
+        //set el resultado esperado
+        double resultadoEsperado = 1;
+
+        // ejercicio a probar
+        double resultadoEjecucion = miCalculadora.division(2.0f, 2.0f);
+
+        //verificar
+        //Assert.assertEquals(resultadoEsperado, resultadoEjecucion, .01);
+        assertThat(resultadoEsperado, is(resultadoEjecucion));
+    }
+
+    @Test
+    public void divisionEntreCero() {
+        //set el resultado esperado
+        double resultadoEsperado = Double.POSITIVE_INFINITY;
+
+        // ejercicio a probar
+        double resultadoEjecucion = miCalculadora.division(2.0f, 0.0f);
+
+        //verificar
+        //Assert.assertEquals(resultadoEsperado, resultadoEjecucion, .01);
+        assertThat(resultadoEsperado, is(resultadoEjecucion));
+    }
+    /*
+
 
     @Test
     public void multiplicacion() {
