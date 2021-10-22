@@ -42,6 +42,7 @@ public class FakeOracleAlumnoDAOTest {
         Alumno alumno1 = new Alumno("nombre", "001", 20, "micorreo@hola.com");
 
         /*
+        para booleans
         when(dao.addAlumno(any(Alumno.class))).thenAnswer(
             new Answer<Boolean>(){
                 public Boolean answer(InvocationOnMock invocation) throws Throwable {
@@ -67,5 +68,34 @@ public class FakeOracleAlumnoDAOTest {
         int cuantosDespues = alumnos.size();
 
         assertThat(cuantosAntes + 1, is(cuantosDespues));
+    }
+
+    @Test
+    public void deleteAlumnoTest(){
+        int cuantosAntes = alumnos.size();
+        System.out.println("Size antes = " +  cuantosAntes);
+        final Alumno alumno1 = new Alumno("nombre", "001", 20, "micorreo@hola.com");
+
+        doAnswer(new Answer() {
+            public Object answer(InvocationOnMock invocation) {
+                Alumno arg = (Alumno) invocation.getArguments()[0];
+                alumnos.put(anyString(), arg);
+                System.out.println("Size despues = " + alumnos.size());
+                return null;
+            }
+        }).when(dao).addAlumno(any(Alumno.class));
+        dao.addAlumno(alumno1);
+
+        doAnswer(new Answer(){
+            public Object answer(InvocationOnMock invocation){
+                Alumno arg = (Alumno) invocation.getArguments()[0];
+                alumnos.remove(alumno1);
+                System.out.println("Size despues = " + alumnos.size());
+                return null;
+            }
+        }).when(dao).deleteAlumno(any(Alumno.class));
+        dao.deleteAlumno(alumno1);
+
+
     }
 }

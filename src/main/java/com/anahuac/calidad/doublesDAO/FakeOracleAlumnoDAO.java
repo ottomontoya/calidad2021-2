@@ -3,13 +3,11 @@ package com.anahuac.calidad.doublesDAO;
 public class FakeOracleAlumnoDAO implements AlumnoDAO {
 
     @Override
-    public boolean addAlumno (Alumno a) {
-        return false;
+    public void addAlumno (Alumno a) {
     }
 
     @Override
-    public boolean deleteAlumno(Alumno a) {
-        return false;
+    public void deleteAlumno(Alumno a) {
     }
 
     @Override
