@@ -79,9 +79,4 @@ public class Account {
     int deposit(int deposit){
         return this.balance + deposit;
     }
-
-    int getPorcentaje(){
-        return ( 1 + (this.zone/100));
-    }
-
 }
