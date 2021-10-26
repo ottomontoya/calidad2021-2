@@ -59,8 +59,7 @@ public class Account {
 
     /**
      * <h1>Methods</h1>
-     * Solo le agregué los metodos check y deposit para poder checkear el balance de una cuenta y depositar dinero a
-     * una cuenta (ejer. 3)
+     * Solo le agregué deposit para hacer depositos
      */
     void debit(int balance) {
         this.balance -= balance;
@@ -77,12 +76,12 @@ public class Account {
         this.alerts = listener;
     }
 
-    int check(){
-        return this.balance;
-    }
-
     int deposit(int deposit){
         return this.balance + deposit;
+    }
+
+    int getPorcentaje(){
+        return ( 1 + (this.zone/100));
     }
 
 }
