@@ -24,10 +24,6 @@ public class prueba3Answer {
     Account account;
     public HashMap<String, Integer> hashAccount;
 
-    private int comision(int i){
-        return i * account.getPorcentaje();
-    }
-
     @Before
     public void setUp() throws Exception {
         dao = Mockito.mock(Account.class);
@@ -58,4 +54,5 @@ public class prueba3Answer {
 
         // -- Paso 3 --
     }
+
 }
