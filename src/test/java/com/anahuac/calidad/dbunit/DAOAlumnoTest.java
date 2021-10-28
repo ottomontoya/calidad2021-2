@@ -54,7 +54,6 @@ public class DAOAlumnoTest extends DBTestCase {
 
         try {
             IDataSet databaseDataSet = getConnection().createDataSet(); //esta es toda la base de datos
-
             ITable actualTable = databaseDataSet.getTable("alumnos_tbl");
 
             //Leer el archivo con el resultado esperado
@@ -62,8 +61,6 @@ public class DAOAlumnoTest extends DBTestCase {
             ITable expectedTable = expectedDataSet.getTable("alumnos_tbl");
 
             Assertion.assertEquals(expectedTable, actualTable);
-
-
         } catch (Exception e) {
             fail("Error in insert test: " + e.getMessage());
         }
