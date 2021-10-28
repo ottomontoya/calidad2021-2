@@ -12,7 +12,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        Alumno a = new Alumno("alumno2", "002", 15, "hola@hola.com");
+        Alumno a = new Alumno("otto", "15", 21, "hola@gmail.com");
         Connection con;
 
         try {
