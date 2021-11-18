@@ -38,11 +38,11 @@ public class mernCrudTest {
         driver.findElement(By.xpath("//div[@id='root']/div/div[2]/button")).click();
         driver.findElement(By.name("name")).click();
         driver.findElement(By.name("name")).clear();
-        driver.findElement(By.name("name")).sendKeys("brandon otell");
+        driver.findElement(By.name("name")).sendKeys("otto montoya");
         driver.findElement(By.name("email")).clear();
 
         // Aqui agrego el numRandom
-        driver.findElement(By.name("email")).sendKeys("dashy" + String.valueOf(numRandom) +"@gmail.com");
+        driver.findElement(By.name("email")).sendKeys("ottomontoya" + String.valueOf(numRandom) +"@gmail.com");
 
         driver.findElement(By.name("age")).clear();
         driver.findElement(By.name("age")).sendKeys("21");
