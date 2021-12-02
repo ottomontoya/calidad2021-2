@@ -46,7 +46,7 @@ public class DAOAlumnoTest extends DBTestCase {
     }
 
     @Test
-    public void test() {
+    public void testAdd() {
         Alumno alumno = new Alumno("otto", "15", 21, "hola@gmail.com");
         AlumnoDAOMySQL daoMySQL = new AlumnoDAOMySQL();
 
@@ -62,8 +62,66 @@ public class DAOAlumnoTest extends DBTestCase {
 
             Assertion.assertEquals(expectedTable, actualTable);
         } catch (Exception e) {
-            fail("Error in insert test: " + e.getMessage());
+            fail("Error in CREATE test: " + e.getMessage());
         }
+    }
 
+    @Test
+    public void testRead() {
+        AlumnoDAOMySQL daoMySQL = new AlumnoDAOMySQL();
+
+        daoMySQL.consultarAlumno("001");
+
+        try {
+            IDataSet databaseDataSet = getConnection().createDataSet();
+            ITable actualTable = databaseDataSet.getTable("alumnos_tbl");
+
+            IDataSet expectedDataSet = new FlatXmlDataSetBuilder().build(new File("src/resources/read_result.xml"));
+            ITable expectedTable = expectedDataSet.getTable("alumnos_tbl");
+
+            Assertion.assertEquals(expectedTable, actualTable);
+        } catch (Exception e){
+            fail("Error in READ test: " + e.getMessage());
+        }
+    }
+
+    @Test
+    public void testUpdate() {
+        Alumno alumno = new Alumno("hola", "001", 10, "update@hola.com");
+        AlumnoDAOMySQL daoMySQL = new AlumnoDAOMySQL();
+
+        daoMySQL.updateEmail(alumno);
+
+        try {
+            IDataSet databaseDataSet = getConnection().createDataSet();
+            ITable actualTable = databaseDataSet.getTable("alumnos_tbl");
+
+            IDataSet expectedDataSet = new FlatXmlDataSetBuilder().build(new File("src/resources/update_result.xml"));
+            ITable expectedTable = expectedDataSet.getTable("alumnos_tbl");
+
+            Assertion.assertEquals(expectedTable, actualTable);
+        } catch (Exception e){
+            fail("Error in UPDATE test: " + e.getMessage());
+        }
+    }
+
+    @Test
+    public void testDelete() {
+        Alumno alumno = new Alumno("hola", "001", 10, "hola@hola.com");
+        AlumnoDAOMySQL daoMySQL = new AlumnoDAOMySQL();
+
+        daoMySQL.deleteAlumno(alumno);
+
+        try {
+            IDataSet databaseDataSet = getConnection().createDataSet();
+            ITable actualTable = databaseDataSet.getTable("alumnos_tbl");
+
+            IDataSet expectedDataSet = new FlatXmlDataSetBuilder().build(new File("src/resources/delete_result.xml"));
+            ITable expectedTable = expectedDataSet.getTable("alumnos_tbl");
+
+            Assertion.assertEquals(expectedTable, actualTable);
+        } catch (Exception e){
+            fail("Error in DELETE test: " + e.getMessage());
+        }
     }
 }
